@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active: myprofile
+  application:
+    name: scooby-server-app
+  cloud:
+    config:
+      server:
+        git:
+#          uri: https://github.com/spring-cloud-samples/config-repo
+#          uri: file:///kkrueger/git/very-simple-springxd-processor.git
+          uri: https://github.com/kennyk65/octo-wookie
+          basedir: target/config
+# warning: native does not work because it picks up EVERYTHING in the server's configuration, including port.
+        native:
+          searchLocations: classpath:subfolder/some-local.properties,classpath:subfolder/jubjub.properties
